@@ -8,6 +8,10 @@ Work in progress.
 
 - Create project and plugin management structure.
 - Develop and debug initial code source. 
+- Unit tests.
+- Documentation.
+- Changelog.
+- Sponsoring.
 
 ## <a name="license"></a> License
 

@@ -1,9 +1,11 @@
-# 🚀 FlexCheck
+# ✅ FlexCheck
 
 >
 > **FlexCheck** is a modular, extensible data validation library for Python. 
 >    
-> 🚀 Powered by [Tamia Team](https://tamia.team)
+> 🚀 Powered by [Tamia Team](https://tamia.team). 
+>
+> [Become a VIP partner by sponsoring us](./SPONSOR.md).
 >
 
 ## <a name="table-of-content" />Table of Contents
@@ -16,6 +18,12 @@
    - [Writing Your Own Plugin](#writing-your-own-plugin)
    - [Localization Support](#localization-support)
 [Contributing](#contributing)
+   - [Guidelines](#contributing-guidelines)
+   - [Development requirements](#contributing-development-requirements)
+   - [Tests](#contributing-tests)
+[Credits](#credits)
+[Resources](#resources)
+[Changes](#changes)
 [License](#license)
 
 ## <a name="synopsis" />Synopsis
@@ -97,14 +105,44 @@ manager = PluginManager(locale="fr_FR")
 
 This will adjust date formats, error messages, and other locale-sensitive operations accordingly.
 
-## <a name="contributing"></a> Contributing
+## <a name="contributing-guidelines"></a> Contributing
 
-Contributions are welcome! To contribute:
+Contributions are welcome! 
+
+### <a name="contributing-guidelines"></a> Guidelines
+
+Please respect the following process to contribute:
 
 1. Fork the repository.
 2. Create a new branch.
 3. Add your changes.
 4. Submit a pull request.
+
+### <a name="contributing-development-requirements">Developments requirements
+
+Global requirements:
+
+- [Python >= 3.10](https://www.python.org/)
+- [Poetry](https://python-poetry.org/): `pip3 install poetry`
+
+### <a name="contributing-tests"></a>Tests
+
+The command below show how to run unit tests.
+
+```python
+poetry run pytest
+```
+
+## <a name="credits">Credits
+
+Project initiator: [François-Xavier Michaud](https://linkedin.com/in/francoisxaviermichaud)
+
+## <a name="resources">Resources
+
+## <a name="changes">Changes
+
+Please refer to [CHANGELOG](./CHANGELOG.md).
+
 
 ## <a name="license"></a> License
 
