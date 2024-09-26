@@ -2,7 +2,7 @@ name: Publish to Test PyPI
 
 on:
   release:
-    types: [prereleased]
+    types: [published]
 
 permissions:
   contents: read
@@ -22,18 +22,16 @@ jobs:
     - name: Install Poetry
       uses: Gr1N/setup-poetry@v9
       with:
-        poetry-version: 'latest'
-      env:
-        POETRY_PYPI_TOKEN_PYPI: ${{ secrets.POETRY_PYPI_TOKEN_PYPI }}
+        poetry-version: '1.8.3'
 
     - name: Install dependencies
       run: |
-        poetry install --no-dev  # Install only the main dependencies
+        poetry install --no-dev
 
     - name: Build package
       run: poetry build
 
     - name: Publish to PyPI
       env:
-        POETRY_PYPI_TOKEN_PYPI: ${{ secrets.POETRY_PYPI_TOKEN_PYPI }}
+        POETRY_PYPI_TOKEN_PYPI: ${{ secrets.ORG_PYPI__API_TOKEN }}
       run: poetry publish --build
