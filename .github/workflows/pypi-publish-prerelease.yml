@@ -28,6 +28,10 @@ jobs:
       run: |
         poetry install --no-dev
 
+    - name: Configure Poetry for PyPI
+      run: |
+        poetry config http-basic.pypi "__token__" "${{ secrets.PYPI_API_TOKEN }}"
+
     - name: Build package
       run: poetry build
       env:
