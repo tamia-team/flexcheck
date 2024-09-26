@@ -30,6 +30,8 @@ jobs:
 
     - name: Build package
       run: poetry build
+      env:
+        POETRY_PYPI_TOKEN_PYPI: ${{ secrets.ORG_PYPI__API_TOKEN }}
 
     - name: Publish to PyPI
       env:
