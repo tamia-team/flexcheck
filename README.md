@@ -61,7 +61,7 @@ pip install flexcheck-url
 First, import and initialize the plugin manager to load available validators:
 
 ```python
-from flexcheck.plugin_manager import PluginManager
+from flexcheck import PluginManager
 
 # Initialize the manager and load plugins
 manager = PluginManager()
