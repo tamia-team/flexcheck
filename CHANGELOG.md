@@ -12,6 +12,8 @@ Work in progress.
 - Documentation.
 - Changelog.
 - Sponsoring.
+- Create Github workflow to publish `dev` tags on PyPi test repo.
+
 
 ## <a name="license"></a> License
 
