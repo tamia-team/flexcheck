@@ -30,7 +30,11 @@ jobs:
 
     - name: Configure Poetry for PyPI
       run: |
-        poetry config http-basic.pypi "__token__" "${{ secrets.PYPI_API_TOKEN }}"
+        poetry config repositories.test-pypi https://test.pypi.org/legacy/
+
+    - name: Configure Poetry for PyPI
+      run: |
+        poetry config pypi-token.test-pypi "${{ secrets.PYPI_API_TOKEN }}"
 
     - name: Build package
       run: poetry build
@@ -40,4 +44,6 @@ jobs:
     - name: Publish to PyPI
       env:
         POETRY_PYPI_TOKEN_PYPI: ${{ secrets.ORG_PYPI__API_TOKEN }}
-      run: poetry publish --build
+      run: poetry publish -r test-pypi --build
+
+
