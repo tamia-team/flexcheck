@@ -5,7 +5,7 @@
 >    
 > 🚀 Powered by [Tamia Team](https://tamia.team). 
 >
-> [Become a VIP partner by sponsoring us](./SPONSOR.md).
+> [Become a VIP partner by sponsoring us](./SPONSORING.md).
 >
 
 ## <a name="table-of-content" />Table of Contents
