@@ -1,36 +1,39 @@
 name: Publish to Test PyPI
 
 on:
-  push:
-    tags:
-      - '*-dev'  # Triggers the action on tags containing '-dev'
+  release:
+    types: [prereleased]
+
+permissions:
+  contents: read
 
 jobs:
-  publish-to-testpypi:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
+    - uses: actions/checkout@v4
 
     - name: Set up Python
-      uses: actions/setup-python@v5
+      uses: actions/setup-python@v5 
       with:
-        python-version: '3.8'
+        python-version: '3.x'
 
     - name: Install Poetry
       uses: Gr1N/setup-poetry@v9
       with:
-        poetry-version: 'latest' 
+        poetry-version: 'latest'
+      env:
+        POETRY_PYPI_TOKEN_PYPI: ${{ secrets.POETRY_PYPI_TOKEN_PYPI }}
 
     - name: Install dependencies
-      run: poetry install
+      run: |
+        poetry install --no-dev  # Install only the main dependencies
 
-    - name: Build the package
+    - name: Build package
       run: poetry build
 
-    - name: Publish to Test PyPI
+    - name: Publish to PyPI
       env:
-        POETRY_PYPI_TOKEN_TEST_PYPI: ${{ secrets.ORG_PYPI__API_TOKEN }}
-      run: poetry publish -r test-pypi --build
-
+        POETRY_PYPI_TOKEN_PYPI: ${{ secrets.POETRY_PYPI_TOKEN_PYPI }}
+      run: poetry publish --build
